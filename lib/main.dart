@@ -4,13 +4,21 @@
 
 import 'package:flutter/material.dart';
 import './RandomWords.dart';
+import './Layout.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // return RandomWords();
-    return MaterialApp(title: "My flutter app", home: RandomWords());
+    // RandomWords();
+    //final Widget widget = RandomWords();
+
+    // Layout()
+    final Widget widget = Layout();
+
+
+    
+    return MaterialApp(title: "My flutter app", home: widget);
   }
 }
