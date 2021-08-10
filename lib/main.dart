@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import './RandomWords.dart';
 import './Layout.dart';
+import './Fetch.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,10 +16,11 @@ class MyApp extends StatelessWidget {
     //final Widget widget = RandomWords();
 
     // Layout()
-    final Widget widget = Layout();
+    // final Widget widget = Layout();
 
+    // Fetch()
+    final Widget widget = Fetch();
 
-    
     return MaterialApp(title: "My flutter app", home: widget);
   }
 }
