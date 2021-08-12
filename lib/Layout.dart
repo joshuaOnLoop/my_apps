@@ -67,16 +67,16 @@ class Layout extends StatelessWidget {
     final Widget reviewWidget = new ReviewWidget(
         numberOfStars: 4, numberOfReviews: 172, stepsData: stepsData);
 
-    return MaterialApp(
-      title: "Flutter Layout Demo",
-      home: Scaffold(
-          appBar: AppBar(title: Text("Flutter Layout Demo")),
-          body: Column(children: [
-            characterRow,
-            Center(
-              child: reviewWidget,
-            )
-          ])),
-    );
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("Flutter Layout Demo"),
+          actions: [],
+        ),
+        body: Column(children: [
+          characterRow,
+          Center(
+            child: reviewWidget,
+          )
+        ]));
   }
 }

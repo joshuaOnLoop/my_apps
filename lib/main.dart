@@ -21,6 +21,41 @@ class MyApp extends StatelessWidget {
     // Fetch()
     final Widget widget = Fetch();
 
-    return MaterialApp(title: "My flutter app", home: widget);
+    return MaterialApp(
+      title: "My flutter app",
+      initialRoute: "/",
+      routes: {
+        "/": (BuildContext context) => Home(),
+        "/Fetch": (BuildContext context) => Fetch(),
+        "/Layout": (BuildContext context) => Layout(),
+        "/RandomWords": (BuildContext context) => RandomWords(),
+      },
+    );
+  }
+}
+
+class Home extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        child: Row(
+          children: [
+            RaisedButton(
+              child: Text("Fetch"),
+              onPressed: () => Navigator.pushNamed(context, "/Fetch"),
+            ),
+            RaisedButton(
+              child: Text("Layout"),
+              onPressed: () => Navigator.pushNamed(context, "/Layout"),
+            ),
+            RaisedButton(
+              child: Text("RandomWords"),
+              onPressed: () => Navigator.pushNamed(context, "/RandomWords"),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
