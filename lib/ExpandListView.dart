@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ExpandListView extends StatelessWidget {
-  final texts = List<String>.filled(12, 'Im a filler text');
+  final texts = List<String>.filled(7, 'Im a filler text');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,38 +18,47 @@ class ExpandListView extends StatelessWidget {
                 colors: [Colors.red, Colors.blue],
               ),
             ),
-            child: SingleChildScrollView(
+            child: LayoutBuilder(
+                builder: (context, constraints) => SingleChildScrollView(
                 // physics: ClampingScrollPhysics(),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Container(
-                      color: Colors.yellow,
-                      child: Text("Im a filler container"),
-                    ),
-                    Container(
-                      color: Colors.yellow,
-                      child: Text("Im a filler container"),
-                    ),
-                    Container(
-                      color: Colors.yellow,
-                      child: Text("Im a filler container"),
-                    ),
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                    child: IntrinsicHeight(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Container(
+                            color: Colors.yellow,
+                            child: Text("Im a filler container"),
+                          ),
+                          Container(
+                            color: Colors.yellow,
+                            child: Text("Im a filler container"),
+                          ),
+                          Container(
+                            color: Colors.yellow,
+                            child: Text("Im a filler container"),
+                          ),
 
-                    // ColleagueListView
-                    SizedBox(
-                      height: 20.0,
+                          // ColleagueListView
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          Expanded(
+                            child: Container(
+                              color: Colors.grey,
+                              padding: EdgeInsets.symmetric(vertical: 10.0),
+                              child: Column(
+                                children: [
+                                  ...texts.map<Widget>((text) => _card(text)).toList()
+                                ],
+                              )),
+                          )
+                        ],
+                      ),
                     ),
-                    Container(
-                        color: Colors.grey,
-                        padding: EdgeInsets.symmetric(vertical: 10.0),
-                        child: Column(
-                          children: [
-                            ...texts.map<Widget>((text) => _card(text)).toList()
-                          ],
-                        ))
-                  ],
-                ))));
+                  )),
+            )));
   }
 
   Widget _card(String text) {
