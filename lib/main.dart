@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import './RandomWords.dart';
 import './Layout.dart';
 import './Fetch.dart';
+import './ExpandListView.dart';
 
 void main() => runApp(MyApp());
 
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         "/Fetch": (BuildContext context) => Fetch(),
         "/Layout": (BuildContext context) => Layout(),
         "/RandomWords": (BuildContext context) => RandomWords(),
+        "/ExpandListView": (BuildContext context) => ExpandListView(),
       },
     );
   }
@@ -39,7 +41,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: Row(
+        child: Wrap(
           children: [
             RaisedButton(
               child: Text("Fetch"),
@@ -52,6 +54,10 @@ class Home extends StatelessWidget {
             RaisedButton(
               child: Text("RandomWords"),
               onPressed: () => Navigator.pushNamed(context, "/RandomWords"),
+            ),
+            RaisedButton(
+              child: Text("ExpandListView"),
+              onPressed: () => Navigator.pushNamed(context, "/ExpandListView"),
             )
           ],
         ),
